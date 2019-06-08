@@ -18,7 +18,7 @@ app.intent('Default Welcome Intent', (conv) => {
 });
 
 //Image URLs
-const clearImg = 'http://tmglive.tv/wp-content/uploads/2017/06/Sunny-clear-weather.jpeg';
+const clearImg = 'https://mauritiusattractions.com/slir/w854/content/images/mauritius-weather/mauritius-weather%20(4).jpg';
 const rainImg = 'https://www.scienceabc.com/wp-content/uploads/2015/05/Walking-in-Rain.jpg';
 const cloudsImg = 'https://www.theglobeandmail.com/resizer/BGOzSdJP1VNRXJ9GCYbW9-VYtAk=/1200x0/filters:quality(80)/arc-anglerfish-tgam-prod-tgam.s3.amazonaws.com/public/5EG236O7RVH4LKH7RRD4SR5NPI';
 const hazeImg = 'https://www.healthhub.sg/sites/assets/Assets/Article%20Images/respiratory_haze.jpg?Width=970&Height=405';
@@ -39,7 +39,7 @@ app.intent('City', (conv, { geocity }) => {
     return requestPromise.get(options).then((res) => {
         console.log(res);
         conv.ask(`<speak>The weather of ${geocity} is ${res.weather[0].main}</speak >`);
-        conv.ask(`<speak>The temperature is ${Math.floor(res.main.temp - 273)} degree celcius,
+        conv.ask(`<speak>The temperature is ${Math.floor(res.main.temp - 273)} degree celcius.
             <break time = "200ms"/>
             
             <break time = "300ms"/> Do you want to check another City?
