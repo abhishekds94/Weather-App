@@ -2,7 +2,9 @@
 const requestPromise = require('request-promise');
 
 //Importing DialogFlow module for AoG library
-const { dialogflow } = require('actions-on-google');
+const { dialogflow,
+        BasicCard,
+        Image } = require('actions-on-google');
 
 //Importing Firebase functions
 const functions = require('firebase-functions');
@@ -36,10 +38,10 @@ app.intent('City', (conv, { geocity }) => {
 
     return requestPromise.get(options).then((res) => {
         console.log(res);
-        conv.ask(`<speak>The weather of ${geocity} is</speak >`);
+        conv.ask(`<speak>The weather of ${geocity} is ${res.weather[0].main} is ${geocity}</speak >`);
         conv.ask(`<speak>The temperature is ${Math.floor(res.main.temp - 273)} degree celcius,
             <break time = "200ms"/>
-            ${res.weather[0].main} is ${geocity}
+            
             <break time = "300ms"/> Do you want to check another City?
             </speak>`);
 
