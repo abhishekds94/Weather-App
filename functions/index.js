@@ -38,7 +38,7 @@ app.intent('City', (conv, { geocity }) => {
 
     return requestPromise.get(options).then((res) => {
         console.log(res);
-        conv.ask(`<speak>The weather of ${geocity} is ${res.weather[0].main} is ${geocity}</speak >`);
+        conv.ask(`<speak>The weather of ${geocity} is ${res.weather[0].main}</speak >`);
         conv.ask(`<speak>The temperature is ${Math.floor(res.main.temp - 273)} degree celcius,
             <break time = "200ms"/>
             
